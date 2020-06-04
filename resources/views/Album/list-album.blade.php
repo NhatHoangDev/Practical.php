@@ -37,7 +37,10 @@
                             <td>{{$album->__get("album_release_date")}}</td>
                             <td>{{$album->__get("album_genre")}}</td>
                             <td>
-                                <a href="{{url("edit-album/{$album->__get("id")}")}}" class="btn btn-outline-warning">Edit</a>
+{{--                                <a href="{{url("edit-album/{$album->__get("id")}")}}" class="btn btn-1b">Edit</a>--}}
+                                <form action="{{url("edit-album/{$album->__get("id")}")}}" >
+                                    <button type="submit" name="id" class="btn btn-danger">Edit</button>
+                                </form>
                             </td>
                             <td> <form action="{{url("delete-album/{$album->__get("id")}")}}" method="post">
                                     @method("DELETE")

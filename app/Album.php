@@ -13,4 +13,5 @@ class Album extends Model
         "album_release_date",
         "album_genre"
     ];
+
 }

@@ -22,7 +22,7 @@ Route::get('new-album','AlbumController@newAlbum');
 Route::post('save-album', 'AlbumController@saveAlbum');
 Route::delete("delete-album/{id}", "AlbumController@deleteAlbum");
 Route::get("edit-album/{id}", "AlbumController@editAlbum");
-Route::patch("update-album/{id}", "AlbumController@updateAlbum");
+Route::put("update-album/{id}", "AlbumController@updateAlbum");
 //practical
 Route::get('practical','PracticalController@index');
 Route::post('/search', 'PracticalController@search');

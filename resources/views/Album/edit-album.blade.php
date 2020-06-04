@@ -24,24 +24,25 @@
                         }
                         ?>
                         <div class="position-center">
-                            <form role="form" action="{{url("update-album/{$album->__get("id")}")}}" method="post">
-                                @method("PATCH")
+                            <form role="form" action="{{url("/update-album/{$album->__get("id")}")}}" method="post">
+                                @method("PUT")
+                                @csrf
                                 {{csrf_field()}}
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Album Name</label>
-                                    <input type="name" value="{{$album ->album_name}}" name="album_name" class="form-control" id="exampleInputEmail1" placeholder="Enter album name">
+                                    <input type="name" value="{{$album ->__get("album_name")}}" name="album_name" class="form-control" @error("album_name") is-invalid @enderror id="exampleInputEmail1" placeholder="Enter album name">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Album Artist</label>
-                                    <input type="name" value="{{$album ?? ''->album_artist}}" name="album_artist" class="form-control" id="exampleInputEmail1" placeholder="Enter artist">
+                                    <input type="name" value="{{$album -> __get("album_artist")}}" name="album_artist" class="form-control" @error("album_artist") is-invalid @enderror id="exampleInputEmail1" placeholder="Enter artist">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Release Date</label>
-                                    <input type="name" value="{{$album ?? ''->album_release_date}}" name="album_release_date" class="form-control" id="exampleInputEmail1" placeholder="Enter release date">
+                                    <input type="name" value="{{$album -> __get("album_release_date")}}" name="album_release_date" class="form-control" @error("album_release_date") is-invalid @enderror id="exampleInputEmail1" placeholder="Enter release date">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Genre</label>
-                                    <input type="name" value="{{$album ?? ''->album_genre}}" name="album_genre" class="form-control" id="exampleInputPassword1" placeholder="genre">
+                                    <input type="name" value="{{$album -> __get("album_genre")}}" name="album_genre" class="form-control" @error("album_genre") is-invalid @enderror id="exampleInputPassword1" placeholder="genre">
                                 </div>
                                 <button type="submit" class="btn btn-info">Submit</button>
                             </form>
